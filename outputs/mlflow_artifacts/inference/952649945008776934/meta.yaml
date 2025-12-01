@@ -1,0 +1,6 @@
+artifact_location: /Users/ankurmishra/Desktop/LLMNEO_U/outputs/mlflow_artifacts/inference/952649945008776934
+creation_time: 1764585171648
+experiment_id: '952649945008776934'
+last_update_time: 1764585171648
+lifecycle_stage: active
+name: deployment-inference

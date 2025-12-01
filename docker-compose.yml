@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: llmneo_api
+             
+    environment:
+      - MODEL_DIR=/app/outputs/mlflow_artifacts/student_model
+      - MLFLOW_INFERENCE_URI=file:/app/outputs/mlflow_artifacts/inference
+      - BASE_MODEL=NousResearch/Llama-3.2-1B
+      - TOKENIZER_ID=NousResearch/Meta-Llama-3-8B
+    ports:
+      - "8000:8000"
+      
+    volumes:
+      - ./src:/app/src:ro
+      - ./outputs:/app/outputs:ro             
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+
+  mlflow:
+    image: python:3.11-slim
+    container_name: llmneo_mlflow
+    command: >
+      sh -c "pip install --no-cache-dir mlflow && mlflow ui --backend-store-uri file:/app/outputs/mlflow_artifacts/mlruns --host 0.0.0.0 --port 5000"
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./outputs:/app/outputs
+    restart: unless-stopped

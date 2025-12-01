@@ -1,0 +1,14 @@
+artifact_uri: file:///kaggle/working/mlflow_artifacts/mlruns/810004900263659245/2c34b9f16026449eaea9ffc1b417d868/artifacts
+end_time: 1764438743328
+entry_point_name: ''
+experiment_id: '810004900263659245'
+lifecycle_stage: active
+run_id: 2c34b9f16026449eaea9ffc1b417d868
+run_name: capable-auk-759
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764416933247
+status: 3
+tags: []
+user_id: root

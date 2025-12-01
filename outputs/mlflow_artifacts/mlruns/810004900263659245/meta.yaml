@@ -1,0 +1,6 @@
+artifact_location: file:///kaggle/working/mlflow_artifacts/mlruns/810004900263659245
+creation_time: 1764416808580
+experiment_id: '810004900263659245'
+last_update_time: 1764416808580
+lifecycle_stage: active
+name: llm-neo-sst2
